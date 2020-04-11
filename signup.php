@@ -1,3 +1,16 @@
+
+<!-- 
+    Developed By Frederick Ennin (CEO of Dollarsoft ) 
+    Contact: +233556676471
+    Email: dollarsoft463@gmail.com
+    Website: http://www.dollarstir.com
+    Youtube: http://www.youtube.com/DollarsoftCorporation
+    Started on: saturday 11th April, 2020
+
+
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,15 +142,25 @@
                     <p> Sign in to <strong> Eshba Logistics and Warehousing Services </strong> for getting all details </p>                        
 
                     <div class="login-form clrbg-before">
-                        <form class="login">
-                            <div class="form-group"><input type="text" placeholder="First Name" class="form-control"></div>
-                            <div class="form-group"><input type="text" placeholder="Last Name" class="form-control"></div>
-                            <div class="form-group"><input type="text" placeholder="Email address" class="form-control"></div>
-                            <div class="form-group"><input type="password" placeholder="Password" class="form-control"></div>
-                            <div class="form-group"><input type="Number" placeholder="Mobile Contact" class="form-control"></div>
-                            <div class="form-group"><input type="password" placeholder="Address" class="form-control"></div>
+                        <form class="login" id="regfrm">
+                            <div class="form-group"><input type="text" placeholder="First Name" name="fname" class="form-control"></div>
+                            <div class="form-group"><input type="text" placeholder="Last Name" name='lname' class="form-control"></div>
+                            <div class="form-group"><input type="text" placeholder="Email address" name="email" class="form-control"></div>
+                            <div class="form-group"><input type="password" placeholder="Password" name="password" class="form-control"></div>
+                            <div class="form-group"><input type="Number" placeholder="Mobile Contact" name="contact" class="form-control"></div>
+                            <div class="form-group"><input type="text" placeholder="Address" name="address" class="form-control"></div>
                             <div class="form-group">
-                                <button class="btn-1 " type="submit"> Sign in now </button>
+
+                            <div class="repo">
+                                <div class="alert alert-success" id="mess" role="alert" style="color:white;background-color:seagreen;">
+                                    A simple info alert—check it out!
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                               
+                            
+                                <button class="btn-1 " type="submit"> Sign Up now </button>
                             </div>
                         </form>
                         <a href="#" class="gray-clr"> Forgot Passoword? </a>                            
@@ -218,6 +241,9 @@
 
         <!-- Theme JS -->
         <script src="eshba/js/theme.js" type="text/javascript"></script>
+        <!-- Dollarsoft js -->
+
+        <script src="dollarsoft.js"></script>
 
     </body>
 

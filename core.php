@@ -1,5 +1,22 @@
 <?php
 
+// Developed By Frederick Ennin (CEO of Dollarsoft ) 
+// Contact: +233556676471
+// Email: dollarsoft463@gmail.com
+// Website: http://www.dollarstir.com
+// Youtube: http://www.youtube.com/DollarsoftCorporation
+// Started on: saturday 11th April, 2020
+
+
+
+
+function reg(){
+    include 'db.php';
+    extract($_POST);
+
+
+}
+
 function dm(){
 
     $dv= "Dollarsoft Corporation";
@@ -54,7 +71,7 @@ function dm(){
                        <p> &copy; Copyright '.date("Y").' Eshba, All rights reserved </p>                            
                    </div>
                    <div class="col-md-6 col-sm-6 text-right">
-                       <p> Developed by <a href="www.dollarstir.com" class="main-clr">Dollarsoft Corporation</a> </p>
+                       <p> Developed by <a href="http://www.dollarstir.com" target="blank" class="main-clr">Dollarsoft Corporation</a> </p>
                    </div>
                </div>
            </div>

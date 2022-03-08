@@ -145,15 +145,15 @@
                         <form class="login" id="regfrm">
                             <div class="form-group"><input type="text" placeholder="First Name" name="fname" class="form-control"></div>
                             <div class="form-group"><input type="text" placeholder="Last Name" name='lname' class="form-control"></div>
-                            <div class="form-group"><input type="text" placeholder="Email address" name="email" class="form-control"></div>
+                            <div class="form-group"><input type="email" placeholder="Email address" name="email" class="form-control"></div>
                             <div class="form-group"><input type="password" placeholder="Password" name="password" class="form-control"></div>
                             <div class="form-group"><input type="Number" placeholder="Mobile Contact" name="contact" class="form-control"></div>
                             <div class="form-group"><input type="text" placeholder="Address" name="address" class="form-control"></div>
                             <div class="form-group">
 
                             <div class="repo">
-                                <div class="alert alert-success" id="mess" role="alert" style="color:white;background-color:seagreen;">
-                                    A simple info alert—check it out!
+                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;">
+                                   please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
                                 </div>
                             </div>
 
@@ -163,23 +163,23 @@
                                 <button class="btn-1 " type="submit"> Sign Up now </button>
                             </div>
                         </form>
-                        <a href="#" class="gray-clr"> Forgot Passoword? </a>                            
+                       <a href="password-recovery.php" class="gray-clr"> Forgot Passoword? </a>                           
                     </div>                        
                 </div>
             </div>
 
-            <!--end sign up panel-->
+          
 
             <?php dm();?>
 
 
         </main>
-        <!-- / Main Wrapper -->
+        
 
-        <!-- Top -->
+       
         <div class="to-top theme-clr-bg transition"> <i class="fa fa-angle-up"></i> </div>
 
-        <!-- Popup: Login -->
+       
         <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">                
                 <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
@@ -190,14 +190,20 @@
                         <p> Sign in to <strong> GO </strong> for getting all details </p>                        
 
                         <div class="login-form clrbg-before">
-                            <form class="login">
-                                <div class="form-group"><input type="text" placeholder="Email address" class="form-control"></div>
-                                <div class="form-group"><input type="password" placeholder="Password" class="form-control"></div>
+                            <form class="login" id="logfrm">
+                                <div class="form-group"><input type="text" name="email" placeholder="Email address" class="form-control"></div>
+                                <div class="form-group"><input type="password" name="password" placeholder="Password" class="form-control"></div>
                                 <div class="form-group">
                                     <button class="btn-1 " type="submit"> Sign in now </button>
                                 </div>
+
+                                <div class="repo">
+                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;">
+                                   please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
+                                </div>
+                            </div>
                             </form>
-                            <a href="#" class="gray-clr"> Forgot Passoword? </a>                            
+                           <a href="password-recovery.php" class="gray-clr"> Forgot Passoword? </a>                           
                         </div>                        
                     </div>
                     <div class="create-accnt">

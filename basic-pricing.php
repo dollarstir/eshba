@@ -10,6 +10,27 @@
 
 
 -->
+<?php
+session_start();
+$_SESSION['pid']=3; 
+
+if (!isset($_SESSION['id'])) {
+
+    echo '
+    
+        <script>
+        
+        alert("please you need to login first to see this page or if you don\'t have account create and login");
+
+        window.location="index.php";
+        </script>
+    ';
+    # code...
+}
+
+
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -56,6 +77,7 @@
             <div class="small2">
                 <div class="small ball smallball5"></div>
                 <div class="small ball smallball6"></div>
+                <?php include 'core.php';?>
                 <div class="small ball smallball7"></div>
                 <div class="small ball smallball8"></div>
             </div>
@@ -95,41 +117,8 @@
                 <!-- /.Header Topbar -->
 
                 <!-- Header Logo & Navigation -->
-                <nav class="menu-bar font2-title1 white-clr">
-                    <div class="theme-container container">
-                        <div class="row">
-                            <div class="col-xs-12 visible-xs"> 
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <div class="visible-xs">                                
-                                    <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
-                                </div> 
-                            </div>
-                            <div class="col-md-10 col-sm-10 col-xs-12 fs-12">  
-                                <a class="sticky-logo hidden-sm" href="index-2.php"> <img alt="" src="eshba/img/logo/eshba-logo3.jpg" /> </a>
-                                <div id="navbar" class="collapse navbar-collapse no-pad">
-                                    <ul class="navbar-nav theme-menu">                                        
-                                        <li class="dropdown active">
-                                            <a href="index.php" aria-haspopup="true" >Home </a>
-                                        </li>
-                                        <li> <a href="about-us.php">about</a> </li>
-                                        <li> <a href="tracking.php"> tracking </a> </li>
-                                        <li> <a href="pricing-plans.php"> pricing </a> </li>
-                                        <li> <a href="contact-us.php"> contact </a> </li>
-                                        <li><span class="search fa fa-search white-clr transition"> </span></li>
-                                    </ul>                                                      
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2 text-right hidden-xs">                                
-                                <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
-                            </div>                            
-                        </div>
-                    </div>
-                </nav>
+                <?php hnv();?>
+
                 <!-- /.Header Logo & Navigation -->
 
             </header>
@@ -172,39 +161,42 @@
                                     <br>Kindly make sure you have provided correct information
                                 </p>
                                 <div class="calculate-form">
-                                    <form class="row">
+                                    <form class="row" id="basicfrm">
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-3"> <label class="title-2"> Full name </label></div>
-                                            <div class="col-sm-9"> <input type="text" placeholder="" class="form-control"> </div>                                        
+                                            <div class="col-sm-9"> <input type="text" placeholder="" name="name" value="<?php echo ($_SESSION['fullname']);?>" class="form-control"> </div>                                        
                                         </div>
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-3"> <label class="title-2">Collection point </label></div>
-                                            <div class="col-sm-9"> <input type="text" placeholder="" class="form-control"> </div>                                        
+                                            <div class="col-sm-9"> <input type="text" name="cp" placeholder="" class="form-control"> </div>                                        
                                         </div>
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-3"> <label class="title-2">Receiving point </label></div>
-                                            <div class="col-sm-9"> <input type="text" placeholder="" class="form-control"> </div>                                        
+                                            <div class="col-sm-9"> <input type="text" name="rp" placeholder="" class="form-control"> </div>                                        
                                         </div>
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-3"> <label class="title-2"> recieve date: </label></div>
-                                            <div class="col-sm-9"> <input type="date" placeholder="" class="form-control"> </div>                                        
+                                            <div class="col-sm-9"> <input type="date" name="rd" placeholder="" class="form-control"> </div>                                        
                                         </div>
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-3"> <label class="title-2"> Package (1): </label></div>
                                             <div class="col-sm-9"> 
                                                 <div class="col-sm-6 no-pad">
-                                                    <select class="selectpicker form-control" data-live-search="true" data-width="100%"
-                                                    data-toggle="tooltip" title="select your package">
-                                                <option>Fridge (S)</option>
-                                                <option>Fridge (L)</option>
-                                                <option>Jutebag (S)</option>
-                                                <option>Jutebag (L)</option>
-                                                <option>Luggage (S)</option>
-                                                <option>Luggage (S)</option>
+                                            <select class="selectpicker form-control" data-live-search="true" data-width="100%"
+                                                    data-toggle="tooltip" title="select your package" id="s1"  name="item1">
+                                                <option value="Small-fridge">Fridge (S)-&#8373;30</option>
+                                                <option value="Large-fridge">Fridge (L)-&#8373;35</option>
+                                                <option value="Small-jutebag">Jutebag (S)-&#8373;20</option>
+                                                <option value="Large-jutebag"> Jutebag (L)-&#8373;25</option>
+                                                <option value="Small-luggage">Luggage (S)-&#8373;25</option>
+                                                <option value="large-luggage">Luggage (L)-&#8373;30</option>
                                             </select>
                                                 </div>
                                                 <div class="col-sm-6 no-pad">
-                                                    <input type="number" placeholder="Quantity" class="form-control to fw-600">
+                                                    <input type="text" id="q1" placeholder="Enter Quantity" name="quant1" class="form-control to fw-600">
+                                                </div>
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="text" id="p1" placeholder="price" name="p1" class="form-control to fw-600" readonly>
                                                 </div>
                                             </div>                                        
                                         </div>
@@ -212,18 +204,22 @@
                                             <div class="col-sm-3"> <label class="title-2"> Package (2): </label></div>
                                             <div class="col-sm-9"> 
                                                 <div class="col-sm-6 no-pad">
-                                                    <select class="selectpicker form-control" data-live-search="true" data-width="100%"
-                                                    data-toggle="tooltip" title="select your package">
-                                                <option>Fridge (S)</option>
-                                                <option>Fridge (L)</option>
-                                                <option>Jutebag (S)</option>
-                                                <option>Jutebag (L)</option>
-                                                <option>Luggage (S)</option>
-                                                <option>Luggage (S)</option>
+                                            <select class="selectpicker form-control" id="s2" data-live-search="true" data-width="100%"
+                                                    data-toggle="tooltip" title="select your package" name="item2">
+                                                <option value="Small-fridge">Fridge (S)-&#8373;30</option>
+                                                <option value="Large-fridge">Fridge (L)-&#8373;35</option>
+                                                <option value="Small-jutebag">Jutebag (S)-&#8373;20</option>
+                                                <option value="Large-jutebag"> Jutebag (L)-&#8373;25</option>
+                                                <option value="Small-luggage">Luggage (S)-&#8373;25</option>
+                                                <option value="large-luggage">Luggage (L)-&#8373;30</option>
                                             </select>
                                                 </div>
                                                 <div class="col-sm-6 no-pad">
-                                                    <input type="number" placeholder="Quantity" class="form-control to fw-600">
+                                                    <input type="text" id="q2" placeholder="Enter Quantity" name="quant2" class="form-control to fw-600">
+                                                </div>
+
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="text" id="p2" placeholder="price" name="p2" class="form-control to fw-600" readonly>
                                                 </div>
                                             </div>                                        
                                         </div>
@@ -231,18 +227,22 @@
                                             <div class="col-sm-3"> <label class="title-2"> Package (3): </label></div>
                                             <div class="col-sm-9"> 
                                                 <div class="col-sm-6 no-pad">
-                                                    <select class="selectpicker form-control" data-live-search="true" data-width="100%"
-                                                    data-toggle="tooltip" title="select your package">
-                                                <option>Fridge (S)</option>
-                                                <option>Fridge (L)</option>
-                                                <option>Jutebag (S)</option>
-                                                <option>Jutebag (L)</option>
-                                                <option>Luggage (S)</option>
-                                                <option>Luggage (S)</option>
+                                            <select class="selectpicker form-control" id="s3" data-live-search="true" data-width="100%"
+                                                    data-toggle="tooltip" title="select your package" name="item3">
+                                                <option value="Small-fridge">Fridge (S)-&#8373;30</option>
+                                                <option value="Large-fridge">Fridge (L)-&#8373;35</option>
+                                                <option value="Small-jutebag">Jutebag (S)-&#8373;20</option>
+                                                <option value="Large-jutebag"> Jutebag (L)-&#8373;25</option>
+                                                <option value="Small-luggage">Luggage (S)-&#8373;25</option>
+                                                <option value="large-luggage">Luggage (L)-&#8373;30</option>
                                             </select>
                                                 </div>
                                                 <div class="col-sm-6 no-pad">
-                                                    <input type="number" placeholder="Quantity" class="form-control to fw-600">
+                                                    <input type="number" id="q3" placeholder="Enter Quantity" name="quant3" class="form-control to fw-600">
+                                                </div>
+
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="text" id="p3" placeholder="price" name="p3" class="form-control to fw-600" readonly>
                                                 </div>
                                             </div>                                        
                                         </div>
@@ -250,31 +250,75 @@
                                             <div class="col-sm-3"> <label class="title-2"> Package (4): </label></div>
                                             <div class="col-sm-9"> 
                                                 <div class="col-sm-6 no-pad">
-                                                    <select class="selectpicker form-control" data-live-search="true" data-width="100%"
-                                                    data-toggle="tooltip" title="select your package">
-                                                <option>Fridge (S)</option>
-                                                <option>Fridge (L)</option>
-                                                <option>Jutebag (S)</option>
-                                                <option>Jutebag (L)</option>
-                                                <option>Luggage (S)</option>
-                                                <option>Luggage (S)</option>
+                                            <select class="selectpicker form-control" id="s4" data-live-search="true" data-width="100%"
+                                                    data-toggle="tooltip" title="select your package" name="item4">
+                                                <option value="Small-fridge">Fridge (S)-&#8373;30</option>
+                                                <option value="Large-fridge">Fridge (L)-&#8373;35</option>
+                                                <option value="Small-jutebag">Jutebag (S)-&#8373;20</option>
+                                                <option value="Large-jutebag"> Jutebag (L)-&#8373;25</option>
+                                                <option value="Small-luggage">Luggage (S)-&#8373;25</option>
+                                                <option value="large-luggage">Luggage (L)-&#8373;30</option>
                                             </select>
                                                 </div>
                                                 <div class="col-sm-6 no-pad">
-                                                    <input type="number" placeholder="Quantity" class="form-control to fw-600">
+                                                    <input type="text" placeholder="Enter Quantity" name="quant4" id="q4" class="form-control to fw-600">
                                                 </div>
+
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="text" id="p4" placeholder="price" name="p4" class="form-control to fw-600" readonly>
+                                                </div>
+
+
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="hidden" id="fin" placeholder="price" class="form-control to fw-600" readonly name="totalprice">
+                                                </div>
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="hidden" id="" placeholder="price" class="form-control to fw-600" readonly name="uid" value="<?php echo ($_SESSION['id']);?>"> 
+                                                </div>
+
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="hidden" id="" placeholder="price" class="form-control to fw-600" readonly name="email" value="<?php echo ($_SESSION['email']);?>"> 
+                                                </div>
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="hidden" id="" placeholder="price" class="form-control to fw-600" readonly name="contact" value="<?php echo ($_SESSION['contact']);?>"> 
+                                                </div>
+
+                                                <div class="col-sm-4 no-pad">
+                                                    <input type="hidden" id="" placeholder="price" class="form-control to fw-600" readonly name="address" value="<?php echo ($_SESSION['address']);?>"> 
+                                                </div>
+
+                                                
+
+                                                
                                             </div>                                        
-                                        </div>
+                                        </div>      
+                                                 
+
+                                       
+                                            <div class="repo">
+                                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;text-align:center;">
+                                                        please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
+                                                </div>
+                                            </div>
                                         <!--calculate the cost here-->
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-9 col-xs-12 pull-right"> 
-                                                <div class="btn-1"> <span> Total Cost: </span> <span class="btn-1 dark"> GHC 0.00 </span>  </div>
+                                                <div class="btn-1"> <span> Total Cost: </span> <span class="btn-1 dark">&#8373;<span id="ov"></span> </span>  </div>
                                             </div>
                                         </div>
+
+
+
+                                        <br>
+
+                                        <div class="col-sm-4 no-pad" style="margin-left:140px;">
+                                                  <input type="checkbox" checked  name="" id="tnc"> <a href="terms.html"><span style="font-size:15px;">Agree to terms </span></a>
+                                                </div><br><br>
+                                               
                                         <!--/calculate cost-->
                                         <div class="form-group wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s">
                                             <div class="col-sm-9 col-xs-12 pull-right"> 
-                                                <a href="eshba-invoice.php"><div class="btn-1"> <span> Print Invoice </span>  </div></a>
+                                                <input type="submit" style="background-color:green;" class="btn-1" value="Print Invoice">
                                             </div>
                                         </div>
                                     </form>
@@ -321,63 +365,7 @@
             </article>
             <!-- /.Content Wrapper -->
 
-                <!-- Footer -->
-            <footer>
-                <div class="footer-main pad-120 white-clr">
-                    <div class="theme-container container">               
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <a href="#"> <img class="logo" alt="#" src="eshba/img/logo/eshba-transparent-logo.png" />  </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <h2 class="title-1 fw-900">quick links</h2>
-                                <ul>
-                                    <li> <a href="basic-pricing.php">basic pricing</a> </li>
-                                    <li> <a href="get-quote.php">premium pricing</a> </li>
-                                    <li> <a href="get-quote.php">standard pricing</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <h2 class="title-1 fw-900">important links</h2>
-                                <ul>
-                                    <li> <a href="contact-us.php">contact us</a> </li>
-                                    <li> <a href="about-us.php">about us</a> </li>
-                                    <li> <a href="tracking.php">Tracking</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <h2 class="title-1 fw-900">get in touch</h2>
-                                <ul class="social-icons list-inline">
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#" class="fa fa-facebook"></a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#" class="fa fa-twitter"></a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#" class="fa fa-google-plus"></a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#" class="fa fa-linkedin"></a> </li>
-                                </ul>
-                                <ul class="payment-icons list-inline">
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-aitelmoney.jpg" /> </a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-mtn-momo.jpg" /> </a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-tigocash.jpg" /> </a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-vodafone-cash.jpg" /> </a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <div class="theme-container container">               
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <p> © Copyright 2020, All rights reserved </p>                            
-                            </div>
-                            <div class="col-md-6 col-sm-6 text-right">
-                                <p> Developed by <a href="#" class="main-clr"> Epawebs Consult - Ghana </a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- /.Footer -->
+            <?php dm();?>
 
 
         </main>
@@ -397,14 +385,20 @@
                         <p> Sign in to <strong> GO </strong> for getting all details </p>                        
 
                         <div class="login-form clrbg-before">
-                            <form class="login">
-                                <div class="form-group"><input type="text" placeholder="Email address" class="form-control"></div>
-                                <div class="form-group"><input type="password" placeholder="Password" class="form-control"></div>
+                            <form class="login" id="logfrm">
+                                <div class="form-group"><input type="text" name="email" placeholder="Email address" class="form-control"></div>
+                                <div class="form-group"><input type="password" name="password" placeholder="Password" class="form-control"></div>
                                 <div class="form-group">
                                     <button class="btn-1 " type="submit"> Sign in now </button>
                                 </div>
+
+                                <div class="repo">
+                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;">
+                                   please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
+                                </div>
+                            </div>
                             </form>
-                            <a href="#" class="gray-clr"> Forgot Passoword? </a>                            
+                           <a href="password-recovery.php" class="gray-clr"> Forgot Passoword? </a>                           
                         </div>                        
                     </div>
                     <div class="create-accnt">
@@ -448,6 +442,8 @@
 
         <!-- Theme JS -->
         <script src="eshba/js/theme.js" type="text/javascript"></script>
+         <!-- dollarstir js -->
+         <script src="dollarsoft.js"></script>
 
     </body>
 

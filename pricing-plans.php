@@ -1,3 +1,20 @@
+
+<!-- 
+    Developed By Frederick Ennin (CEO of Dollarsoft ) 
+    Contact: +233556676471
+    Email: dollarsoft463@gmail.com
+    Website: http://www.dollarstir.com
+    Youtube: http://www.youtube.com/DollarsoftCorporation
+    Started on: saturday 11th April, 2020
+
+
+-->
+
+<?php
+session_start();
+$_SESSION['pid']=3; 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +42,7 @@
       
         <!--[if lt IE 9]>
         <script src="assets/plugins/iesupport/html5shiv.js"></script>
+
         <script src="assets/plugins/iesupport/respond.js"></script>
         <![endif]-->
     </head>
@@ -43,6 +61,7 @@
             <div class="small2">
                 <div class="small ball smallball5"></div>
                 <div class="small ball smallball6"></div>
+                <?php include 'core.php';?>
                 <div class="small ball smallball7"></div>
                 <div class="small ball smallball8"></div>
             </div>
@@ -82,41 +101,7 @@
                 <!-- /.Header Topbar -->
 
                 <!-- Header Logo & Navigation -->
-                <nav class="menu-bar font2-title1 white-clr">
-                    <div class="theme-container container">
-                        <div class="row">
-                            <div class="col-xs-12 visible-xs"> 
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <div class="visible-xs">                                
-                                    <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
-                                </div> 
-                            </div>
-                            <div class="col-md-10 col-sm-10 col-xs-12 fs-12">  
-                                <a class="sticky-logo hidden-sm" href="index-2.php"> <img alt="" src="eshba/img/logo/eshba-logo3.jpg" /> </a>
-                                <div id="navbar" class="collapse navbar-collapse no-pad">
-                                    <ul class="navbar-nav theme-menu">                                        
-                                        <li class="dropdown active">
-                                            <a href="index.php" aria-haspopup="true" >Home </a>
-                                        </li>
-                                        <li> <a href="about-us.php">about</a> </li>
-                                        <li> <a href="tracking.php"> tracking </a> </li>
-                                        <li> <a href="pricing-plans.php"> pricing </a> </li>
-                                        <li> <a href="contact-us.php"> contact </a> </li>
-                                        <li><span class="search fa fa-search white-clr transition"> </span></li>
-                                    </ul>                                                      
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2 text-right hidden-xs">                                
-                                <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
-                            </div>                            
-                        </div>
-                    </div>
-                </nav>
+               <?php hnv();?>
                 <!-- /.Header Logo & Navigation -->
 
             </header>
@@ -273,76 +258,19 @@
                         </div>
                     </div>               
                 </section>
-                <!-- /.Pricing & Plans -->
+              
             </article>
-            <!-- /.Content Wrapper -->
-
-              <!-- Footer -->
-              <footer>
-                <div class="footer-main pad-120 white-clr">
-                    <div class="theme-container container">               
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <a href="#"> <img class="logo" alt="#" src="eshba/img/logo/eshba-transparent-logo.png" />  </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <h2 class="title-1 fw-900">quick links</h2>
-                                <ul>
-                                    <li> <a href="basic-pricing.php">basic pricing</a> </li>
-                                    <li> <a href="get-quote.php">premium pricing</a> </li>
-                                    <li> <a href="get-quote.php">standard pricing</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <h2 class="title-1 fw-900">important links</h2>
-                                <ul>
-                                    <li> <a href="contact-us.php">contact us</a> </li>
-                                    <li> <a href="about-us.php">about us</a> </li>
-                                    <li> <a href="tracking.php">Tracking</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-6 footer-widget">
-                                <h2 class="title-1 fw-900">get in touch</h2>
-                                <ul class="social-icons list-inline">
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#" class="fa fa-facebook"></a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#" class="fa fa-twitter"></a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#" class="fa fa-google-plus"></a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#" class="fa fa-linkedin"></a> </li>
-                                </ul>
-                                <ul class="payment-icons list-inline">
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-aitelmoney.jpg" /> </a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-mtn-momo.jpg" /> </a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-tigocash.jpg" /> </a> </li>
-                                    <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#"> <img alt="#" src="eshba/img/icons/eshba-vodafone-cash.jpg" /> </a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <div class="theme-container container">               
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <p> © Copyright 2020, All rights reserved </p>                            
-                            </div>
-                            <div class="col-md-6 col-sm-6 text-right">
-                                <p> Developed by <a href="#" class="main-clr"> Epawebs Consult - Ghana </a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- /.Footer -->
+           
+             <?php dm();?>
 
 
         </main>
-        <!-- / Main Wrapper -->
+       
 
-        <!-- Top -->
+        
         <div class="to-top theme-clr-bg transition"> <i class="fa fa-angle-up"></i> </div>
 
-        <!-- Popup: Login -->
+      
         <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">                
                 <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
@@ -353,14 +281,20 @@
                         <p> Sign in to <strong> GO </strong> for getting all details </p>                        
 
                         <div class="login-form clrbg-before">
-                            <form class="login">
-                                <div class="form-group"><input type="text" placeholder="Email address" class="form-control"></div>
-                                <div class="form-group"><input type="password" placeholder="Password" class="form-control"></div>
+                            <form class="login" id="logfrm">
+                                <div class="form-group"><input type="text" name="email" placeholder="Email address" class="form-control"></div>
+                                <div class="form-group"><input type="password" name="password" placeholder="Password" class="form-control"></div>
                                 <div class="form-group">
                                     <button class="btn-1 " type="submit"> Sign in now </button>
                                 </div>
+
+                                <div class="repo">
+                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;">
+                                   please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
+                                </div>
+                            </div>
                             </form>
-                            <a href="#" class="gray-clr"> Forgot Passoword? </a>                            
+                           <a href="password-recovery.php" class="gray-clr"> Forgot Passoword? </a>                           
                         </div>                        
                     </div>
                     <div class="create-accnt">
@@ -404,6 +338,9 @@
 
         <!-- Theme JS -->
         <script src="eshba/js/theme.js" type="text/javascript"></script>
+
+         <!-- dollarstir js -->
+         <script src="dollarsoft.js"></script>
 
     </body>
 

@@ -13,6 +13,8 @@
 <?php
 
 session_start();
+$_SESSION['pid']= 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -101,41 +103,7 @@ session_start();
                 <!-- /.Header Topbar -->
 
                 <!-- Header Logo & Navigation -->
-                <nav class="menu-bar font2-title1 white-clr">
-                    <div class="theme-container container">
-                        <div class="row">
-                            <div class="col-xs-12 visible-xs"> 
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <div class="visible-xs">                                
-                                    <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
-                                </div> 
-                            </div>
-                            <div class="col-md-10 col-sm-10 col-xs-12 fs-12">  
-                                <a class="sticky-logo hidden-sm" href="index-2.php"> <img alt="" src="eshba/img/logo/eshba-logo3.jpg" /> </a>
-                                <div id="navbar" class="collapse navbar-collapse no-pad">
-                                    <ul class="navbar-nav theme-menu">                                        
-                                        <li class="dropdown active">
-                                            <a href="index.php" aria-haspopup="true" >Home </a>
-                                        </li>
-                                        <li> <a href="about-us.php">about</a> </li>
-                                        <li> <a href="tracking.php"> tracking </a> </li>
-                                        <li> <a href="pricing-plans.php"> pricing </a> </li>
-                                        <li> <a href="contact-us.php"> contact </a> </li>
-                                        <li><span class="search fa fa-search white-clr transition"> </span></li>
-                                    </ul>                                                      
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2 text-right hidden-xs">                                
-                                <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
-                            </div>                            
-                        </div>
-                    </div>
-                </nav>
+                    <?php hnv();?>
                 <!-- /.Header Logo & Navigation -->
 
             </header>
@@ -510,14 +478,20 @@ constatnt development, customer engagement and staff motivation</p>
                         <p> Sign in to <strong> GO </strong> for getting all details </p>                        
 
                         <div class="login-form clrbg-before">
-                            <form class="login">
-                                <div class="form-group"><input type="text" placeholder="Email address" class="form-control"></div>
-                                <div class="form-group"><input type="password" placeholder="Password" class="form-control"></div>
+                            <form class="login" id="logfrm">
+                                <div class="form-group"><input type="text" name="email" placeholder="Email address" class="form-control"></div>
+                                <div class="form-group"><input type="password" name="password" placeholder="Password" class="form-control"></div>
                                 <div class="form-group">
                                     <button class="btn-1 " type="submit"> Sign in now </button>
                                 </div>
+
+                                <div class="repo">
+                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;">
+                                   please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
+                                </div>
+                            </div>
                             </form>
-                            <a href="#" class="gray-clr"> Forgot Passoword? </a>                            
+                           <a href="password-recovery.php" class="gray-clr"> Forgot Passoword? </a>                           
                         </div>                        
                     </div>
                     <div class="create-accnt">

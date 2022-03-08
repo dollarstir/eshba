@@ -11,24 +11,19 @@
 -->
 
 
-<?php 
-session_start();
-$_SESSION['pid']=2;
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-        <title>Tracking | Eshba Logisitics</title>
+        <title>Rest Password | Eshba Logisitics</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Bootstrap Css -->
-        <link rel="stylesheet" type="text/css" href="eshba/plugins/bootstrap-3.3.6/css/bootstrap.min.css">        
+        <link rel="stylesheet" type="text/css" href="eshba/plugins/bootstrap-3.3.6/css/bootstrap.min.css">  
+        <?php include 'core.php';?>      
         <!-- Bootstrap Select Css -->
         <link rel="stylesheet" type="text/css" href="eshba/plugins/bootstrap-select-1.10.0/dist/css/bootstrap-select.min.css">
         <!-- Fonts Css -->
-        <?php include 'core.php';?>
         <link rel="stylesheet" type="text/css" href="eshba/plugins/font-awesome-4.6.1/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="eshba/plugins/font-elegant/elegant.css">
         <!-- OwlCarousel2 Slider Css -->
@@ -89,7 +84,7 @@ $_SESSION['pid']=2;
                             </div>
                             <div class="col-md-10 col-sm-12 fs-12 text-right">
                                 <ul class="list-inline">
-                                    <li> <h6 class="font2-light"> Come to office </h6> <p class="theme-clr  font2-title1"> Anwomaso, Kumasi - Ghana </p> </li>
+                                    <li> <h6 class="font2-light"> Come to office </h6> <p class="theme-clr  font2-title1"> KNUST, Kumasi - Ghana </p> </li>
                                     <li> <h6 class="font2-light"> Want to meet? </h6> <p class="theme-clr  font2-title1"> Mon-Sat,9am-6pm </p> </li>
                                     <li> <h6 class="font2-light"> Need a help? </h6> <p class="theme-clr font2-title1"> +233-544-883-0149 </p></li>
                                 </ul>
@@ -101,119 +96,89 @@ $_SESSION['pid']=2;
                 <!-- /.Header Topbar -->
 
                 <!-- Header Logo & Navigation -->
-                <?php hnv();?>
+                <nav class="menu-bar font2-title1 white-clr">
+                    <div class="theme-container container">
+                        <div class="row">
+                            <div class="col-xs-12 visible-xs"> 
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="visible-xs">                                
+                                    <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
+                                </div> 
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-12 fs-12">  
+                                <a class="sticky-logo hidden-sm" href="index-2.php"> <img alt="" src="eshba/img/logo/eshba-logo3.jpg" /> </a>
+                                <div id="navbar" class="collapse navbar-collapse no-pad">
+                                    <ul class="navbar-nav theme-menu">                                        
+                                        <li class="dropdown active">
+                                            <a href="index.php" aria-haspopup="true" >Home </a>
+                                        </li>
+                                        <li> <a href="about-us.php">about</a> </li>
+                                        <li> <a href="tracking.php"> tracking </a> </li>
+                                        <li> <a href="pricing-plans.php"> pricing </a> </li>
+                                        <li> <a href="contact-us.php"> contact </a> </li>
+                                        <li><span class="search fa fa-search white-clr transition"> </span></li>
+                                    </ul>                                                      
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 text-right hidden-xs">                                
+                                <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 black-bg"> sign in </a>
+                            </div>                            
+                        </div>
+                    </div>
+                </nav>
                 <!-- /.Header Logo & Navigation -->
 
             </header>
             <!-- /.Header -->
+<!--sign up panel-->
+            <div class="modal-content">   
+                <div class="login-wrap text-center">                        
+                    <h2 class="title-3"> Reset Password </h2>
+                                      
 
-            <!-- Content Wrapper -->
-            <article> 
-                <!-- Breadcrumb -->
-                <section class="theme-breadcrumb pad-50">                
-                    <div class="theme-container container ">  
-                        <div class="row">
-                            <div class="col-sm-8 pull-left">
-                                <div class="title-wrap">
-                                    <h2 class="section-title no-margin"> product tracking </h2>
-                                    <p class="fs-16 no-margin"> Track your product & see the current condition </p>
+                    <div class="login-form clrbg-before">
+                        <form class="login" id="setpass">
+                            <div class="form-group"><input type="text" style="color:black;text-transform:none;" placeholder="Enter email address" name="email" class="form-control"></div>
+                            <div class="form-group"><input type="password" style="color:black;text-transform:none;" placeholder="Enter new password" name="password" class="form-control"></div>
+                            
+                            <div class="form-group"><input type="password" style="color:black;text-transform: none;" placeholder="Comfirm password" name="repass" class="form-control"></div>
+                            <div class="form-group"><input type="hidden" style="color:black;text-transform: none;" placeholder="" name="abxzzzcascombokey" class="form-control" value="<?php echo ($_GET['abxzzzcascombokey']);?>"></div>
+                            <div class="form-group"><input type="hidden" style="color:black;text-transform: none;" placeholder="" name="vxcodexyz" class="form-control" value="<?php echo ($_GET['vxcodexyz']);?>"></div>
+                            
+                            <div class="repo">
+                                <div class="alert alert-info" id="loadee" role="alert" style="color:white;background-color:blue;">
+                                   please Wait! ...  <img src="loading.gif" style="width:20px;height:20px;">
                                 </div>
                             </div>
-                            <div class="col-sm-4">                        
-                                <ol class="breadcrumb-menubar list-inline">
-                                    <li><a href="#" class="gray-clr">Home</a></li>                                   
-                                    <li class="active">Track</li>
-                                </ol>
-                            </div>  
-                        </div>
-                    </div>
-                </section>
-                <!-- /.Breadcrumb -->
 
-                <!-- Tracking -->
-                <section class="pt-50 pb-120 tracking-wrap">    
-                    <div class="theme-container container ">  
-                        <div class="row pad-10">
-                            <div class="col-md-8 col-md-offset-2 tracking-form wow fadeInUp" data-wow-offset="50" data-wow-delay=".30s">     
-                                <h2 class="title-1"> track your product </h2> <span class="font2-light fs-12">Now you can track your product easily</span>
-                                <div class="row">
-                                    <form class="">
-                                        <div class="col-md-7 col-sm-7">
-                                            <div class="form-group">
-                                                <input type="text" placeholder="Enter your product ID" required="" class="form-control box-shadow">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5 col-sm-5">
-                                            <div class="form-group">
-                                                <button class="btn-1">track your product</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="row">
-                            <div class="col-md-7 pad-30 wow fadeInLeft" data-wow-offset="50" data-wow-delay=".30s"> 
-                                <img alt="" src="eshba/img/block/product-1.jpg" />
+                            <div class="form-group">
+                               
+                            
+                                <button class="btn-1 " type="submit"> Submit </button>
                             </div>
-                            <div class="col-md-5 pad-30 wow fadeInRight" data-wow-offset="50" data-wow-delay=".30s"> 
-                                <div class="prod-info white-clr">
-                                    <ul>
-                                        <li> <span class="title-2">Product Name:</span> <span class="fs-16"><!--Enter name of products here--></span> </li>
-                                        <li> <span class="title-2">Product id:</span> <span class="fs-16"><!--Enter ID of products here--></span> </li>
-                                        <li> <span class="title-2">order date:</span> <span class="fs-16"><!--Enter order date here--></span> </li>
-                                        <li> <span class="title-2">order status:</span> <span class="fs-16 theme-clr"><!--Enter order status here--></span> </li>
-                                        <li> <span class="title-2">Pick up point:</span> <span class="fs-16"><!--Enter location of pickup here--></span> </li>
-                                        <li> <span class="title-2">Charge</span> <span class="fs-16"><!---Enter destination location here--></span> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-wrap">
-                            <div class="progress-status">
-                                <span class="border-left"></span>
-                                <span class="border-right"></span>
-                                <span class="dot dot-left wow fadeIn" data-wow-offset="50" data-wow-delay=".40s"></span>
-                                <span class="themeclr-border wow fadeIn" data-wow-offset="50" data-wow-delay=".50s">  <span class="dot dot-center theme-clr-bg"></span> </span>
-                                <span class="dot dot-right wow fadeIn" data-wow-offset="50" data-wow-delay=".60s"></span>
-                            </div>
-                            <div class="row progress-content upper-text">
-                                <div class="col-md-3 col-xs-8 col-sm-2">
-                                    <p class="fs-12 no-margin"> FROM </p>
-                                    <h2 class="title-1 no-margin">London<!--state the current point of pickup here--></h2>
-                                </div>
-                                <div class="col-md-2 col-xs-8 col-sm-3">                              
-                                </div>
-                                <div class="col-md-4 col-xs-8 col-sm-4 text-center">
-                                    <p class="fs-12 no-margin"> currently in </p>
-                                    <h2 class="title-1 no-margin">Our warehouse</h2>
-                                </div>
-                                <div class="col-md-1 col-xs-8 col-sm-1 no-pad">
-                                    <p class="fs-12 no-margin"> [ <b class="black-clr">2 DAYS </b> ] </p>                                
-                                </div>
-                                <div class="col-md-2 col-xs-8 col-sm-2 text-right">
-                                    <p class="fs-12 no-margin"> to </p>
-                                    <h2 class="title-1 no-margin"><!--State site of destination--></h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- /.Tracking -->
+                        </form>
+                        <!-- <a href="password-recovery.php" class="gray-clr"> Forgot Passoword? </a>                             -->
+                    </div>                        
+                </div>
+            </div>
 
-            </article>
-            <!-- /.Content Wrapper -->
+          
 
             <?php dm();?>
 
 
         </main>
-        <!-- / Main Wrapper -->
+        
 
-        <!-- Top -->
+       
         <div class="to-top theme-clr-bg transition"> <i class="fa fa-angle-up"></i> </div>
 
-        <!-- Popup: Login -->
+       
         <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">                
                 <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
@@ -281,9 +246,9 @@ $_SESSION['pid']=2;
 
         <!-- Theme JS -->
         <script src="eshba/js/theme.js" type="text/javascript"></script>
+        <!-- Dollarsoft js -->
 
-         <!-- dollarstir js -->
-         <script src="dollarsoft.js"></script>
+        <script src="dollarsoft.js"></script>
 
     </body>
 
